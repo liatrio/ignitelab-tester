@@ -2,29 +2,65 @@ library 'LEAD'
 pipeline {
   agent none
   stages {
-    stage('Checkout solution3') {
-      agent {
-        label "lead-toolchain-skaffold"
-      }
-      steps {
-          container('skaffold') {
-              checkout([$class: 'GitSCM', branches: [[name: '*/test-solution3']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jknight-liatrio/springtrader-marketsummary.git']]])
-              sh 'ls -al'
-          }
-      }
-
-    }
     stage('build solution3') {
       steps {
           build job: 'jknight-liatrio/springtrader-marketsummary/test-solution3'
       }
     }
-    stage('Done') {
-      agent {
-        label "lead-toolchain-skaffold"
+    stage ('Validating solution3') {
+      agent none
+      options {
+        timeout(time: 30, unit: 'MINUTES')
+      }
+      input {
+        message 'Continue to solution 4a'
       }
       steps {
-         echo "great success"
+        echo "We'll automate this check later"
+      }
+    }
+    stage('solution 4a') {
+      steps {
+          build job: 'jknight-liatrio/springtrader-marketsummary/test-solution4a'
+      }
+    }
+    stage ('Validating solution 4a') {
+      agent none
+      options {
+        timeout(time: 30, unit: 'MINUTES')
+      }
+      input {
+        message 'Continue to solution 4a'
+      }
+      steps {
+        echo "We'll automate this check later"
+      }
+    }
+    stage('solution 4b') {
+      steps {
+          build job: 'jknight-liatrio/springtrader-marketsummary/test-solution4b'
+      }
+    }
+    stage ('Validating solution 4b') {
+      agent none
+      options {
+        timeout(time: 30, unit: 'MINUTES')
+      }
+      input {
+        message 'Continue to solution 4a'
+      }
+      steps {
+        echo "We'll automate this check later"
+      }
+    }
+    stage('solution 5') {
+      steps {
+          build job: 'jknight-liatrio/springtrader-marketsummary/test-solution5'
+      }
+    }
+    stage('Done!') {
+      steps {
+         echo "great success!"
       }
     }
   }
