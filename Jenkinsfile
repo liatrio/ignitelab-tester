@@ -2,6 +2,17 @@ library 'LEAD'
 pipeline {
   agent none
   stages {
+    stage('prep') {
+      agent {
+        label "lead-toolchain-skaffold"
+      }
+      steps {
+        container('skaffold') {
+          sh "helm --tiller-namespace=joes-staging delete --purge marketsummary"
+        }
+      }
+    }
+
     stage('build solution3') {
       steps {
           build job: 'jknight-liatrio/springtrader-marketsummary/test-solution3'
