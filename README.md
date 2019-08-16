@@ -18,6 +18,12 @@ Currently this only supports automation around lab 3-5 so the `springtrader` and
 Note: this currently only validates labs 3-5, and expects that labs 1-2 will have
 already been completed.
 
+This requires that you have the following branches in your `springtrader-marketsummary` project.
+
+- solution3
+- solution4a
+- solution4b
+- solution5
 
 
 # Setup.
@@ -25,8 +31,8 @@ already been completed.
 Make sure that you've completed labs 1,2 and this expects that your `sprintrader-marketsummary` is starting from 
 the beginning of the lab.
 
-1. `@sparky-sandbox add jknight-liatrio/springtrader-marketsummary`
-1. `@sparky-sandbox add jknight-liatrio/ignitelab-tester`
+1. `@sparky-sandbox add liatrio/springtrader-marketsummary`
+1. `@sparky-sandbox add liatrio/ignitelab-tester`
 
 
 Note: This process must be run end-to-end as the beginning of the process is a
