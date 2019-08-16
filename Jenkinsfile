@@ -6,6 +6,9 @@ pipeline {
       agent {
         label "lead-toolchain-skaffold"
       }
+      when {
+          branch 'master'
+      }
       steps {
         container('skaffold') {
           sh "helm --tiller-namespace=joes-staging delete --purge marketsummary"
@@ -14,6 +17,9 @@ pipeline {
     }
 
     stage('build solution3') {
+      when {
+          branch 'master'
+      }
       steps {
         catchError {
           build job: 'liatrio/springtrader-marketsummary/solution3'
@@ -22,6 +28,9 @@ pipeline {
     }
     stage ('Validating solution3') {
       agent none
+      when {
+          branch 'master'
+      }
       options {
         timeout(time: 30, unit: 'MINUTES')
       }
@@ -33,6 +42,9 @@ pipeline {
       }
     }
     stage('solution 4a') {
+      when {
+          branch 'master'
+      }
       steps {
         catchError {
           build job: 'liatrio/springtrader-marketsummary/solution4a'
@@ -41,6 +53,9 @@ pipeline {
     }
     stage ('Validating solution 4a') {
       agent none
+      when {
+          branch 'master'
+      }
       options {
         timeout(time: 30, unit: 'MINUTES')
       }
@@ -52,6 +67,9 @@ pipeline {
       }
     }
     stage('solution 4b') {
+      when {
+          branch 'master'
+      }
       steps {
         catchError {
           build job: 'liatrio/springtrader-marketsummary/solution4b'
@@ -60,6 +78,9 @@ pipeline {
     }
     stage ('Validating solution 4b') {
       agent none
+      when {
+          branch 'master'
+      }
       options {
         timeout(time: 30, unit: 'MINUTES')
       }
@@ -71,6 +92,9 @@ pipeline {
       }
     }
     stage('solution 5') {
+      when {
+          branch 'master'
+      }
       steps {
         catchError {
           build job: 'liatrio/springtrader-marketsummary/solution5'
@@ -78,6 +102,9 @@ pipeline {
       }
     }
     stage('Done!') {
+      when {
+          branch 'master'
+      }
       steps {
          echo "great success!"
       }
