@@ -13,13 +13,18 @@ pipeline {
           }
       }
 
-      post {
-        success {
-          notifyStageEnd()
-        }
-        failure {
-          notifyStageEnd([result: "fail"])
-        }
+    }
+    stage('build solution3') {
+      steps {
+          build job: 'jknight-liatrio/springtrader-marketsummary/test-solution3'
+      }
+    }
+    stage('Done') {
+      agent {
+        label "lead-toolchain-skaffold"
+      }
+      steps {
+         echo "great success"
       }
     }
   }
