@@ -22,7 +22,7 @@ pipeline {
       }
       steps {
         catchError {
-          build job: 'liatrio/springtrader-marketsummary/solution3'
+          build job: 'liatrio/springtrader-marketsummary/test-solution3'
         }
       }
     }
@@ -47,7 +47,7 @@ pipeline {
       }
       steps {
         catchError {
-          build job: 'liatrio/springtrader-marketsummary/solution4a'
+          build job: 'liatrio/springtrader-marketsummary/test-solution4a'
         }
       }
     }
@@ -72,7 +72,7 @@ pipeline {
       }
       steps {
         catchError {
-          build job: 'liatrio/springtrader-marketsummary/solution4b'
+          build job: 'liatrio/springtrader-marketsummary/test-solution4b'
         }
       }
     }
@@ -97,7 +97,7 @@ pipeline {
       }
       steps {
         catchError {
-          build job: 'liatrio/springtrader-marketsummary/solution5'
+          build job: 'liatrio/springtrader-marketsummary/test-solution5'
         }
       }
     }
