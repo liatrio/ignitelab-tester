@@ -15,7 +15,9 @@ pipeline {
 
     stage('build solution3') {
       steps {
+        catchError {
           build job: 'jknight-liatrio/springtrader-marketsummary/test-solution3'
+        }
       }
     }
     stage ('Validating solution3') {
@@ -32,7 +34,9 @@ pipeline {
     }
     stage('solution 4a') {
       steps {
+        catchError {
           build job: 'jknight-liatrio/springtrader-marketsummary/test-solution4a'
+        }
       }
     }
     stage ('Validating solution 4a') {
@@ -49,7 +53,9 @@ pipeline {
     }
     stage('solution 4b') {
       steps {
+        catchError {
           build job: 'jknight-liatrio/springtrader-marketsummary/test-solution4b'
+        }
       }
     }
     stage ('Validating solution 4b') {
@@ -66,7 +72,9 @@ pipeline {
     }
     stage('solution 5') {
       steps {
+        catchError {
           build job: 'jknight-liatrio/springtrader-marketsummary/test-solution5'
+        }
       }
     }
     stage('Done!') {
